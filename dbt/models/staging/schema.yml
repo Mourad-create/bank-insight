@@ -9,8 +9,9 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('stg_banks')
-              field: lei_code
+              arguments:
+                to: ref('stg_banks')
+                field: lei_code
   - name: stg_banks
     columns:
       - name: lei_code

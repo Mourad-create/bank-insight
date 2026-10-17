@@ -10,8 +10,9 @@ models:
         tests:
           - not_null
           - accepted_values:
-              values: [cet1_ratio, total_capital_ratio, leverage_ratio, net_banking_income,
-                       cost_income_ratio, cost_of_risk_bp, net_income_group_share, rote]
+              arguments:
+                values: [cet1_ratio, total_capital_ratio, leverage_ratio, net_banking_income,
+                         cost_income_ratio, cost_of_risk_bp, net_income_group_share, rote]
       - name: value_report
         description: Valeur lue par Claude dans le rapport (null si introuvable).
       - name: source_page
@@ -23,7 +24,8 @@ models:
       - name: status
         tests:
           - accepted_values:
-              values: [concordant, ecart, non_trouve, pas_de_reference]
+              arguments:
+                values: [concordant, ecart, non_trouve, pas_de_reference]
 
   - name: mart_bank_benchmark
     description: Benchmark des banques (une ligne par banque), source du dashboard Power BI.
