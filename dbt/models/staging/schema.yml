@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_reports__extracted_kpis
+    columns:
+      - name: kpi
+        tests: [not_null]
+      - name: lei_code
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_banks')
+              field: lei_code
+  - name: stg_banks
+    columns:
+      - name: lei_code
+        tests: [unique, not_null]

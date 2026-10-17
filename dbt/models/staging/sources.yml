@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    description: Données brutes chargées par les scripts Python (src/ingestion, src/extraction).
+    tables:
+      - name: eba_transparency
+        description: Base complète de l'exercice de transparence EBA (format long, une ligne par banque × période × item).
+      - name: extracted_kpis
+        description: KPI extraits des rapports annuels par Claude, avec page source et citation.
+      - name: banks
+        description: Banques suivies (config/banks.yaml).

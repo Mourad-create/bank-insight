@@ -1,0 +1,49 @@
+# Jeu d'évaluation de l'agent text-to-SQL.
+# Pour chaque question, `expected_sql` calcule la bonne réponse. L'évaluation
+# compare le résultat de la dernière requête de l'agent à celui-ci.
+# Objectif : 30 questions. Varie les difficultés (filtre, tri, comparaison,
+# agrégat, question piège sans réponse dans les données).
+
+- id: q01
+  question: Quelle banque a le ratio CET1 le plus élevé ?
+  expected_sql: >
+    select bank_name from marts.mart_bank_benchmark
+    order by cet1_ratio desc nulls last limit 1
+
+- id: q02
+  question: Quel est le ratio CET1 de BNP Paribas ?
+  expected_sql: >
+    select cet1_ratio from marts.mart_bank_benchmark where bank_name = 'BNP Paribas'
+
+- id: q03
+  question: Quelle banque française a le meilleur coefficient d'exploitation ?
+  expected_sql: >
+    select bank_name from marts.mart_bank_benchmark
+    where country = 'FR' order by cost_income_ratio asc nulls last limit 1
+
+- id: q04
+  question: Combien de banques ont un ratio de levier supérieur à 5 % ?
+  expected_sql: >
+    select count(*) from marts.mart_bank_benchmark where leverage_ratio > 5
+
+- id: q05
+  question: Quel est le ratio CET1 moyen des banques espagnoles ?
+  expected_sql: >
+    select avg(cet1_ratio) from marts.mart_bank_benchmark where country = 'ES'
+
+- id: q06
+  question: Classe les trois banques les plus rentables selon le ROTE.
+  expected_sql: >
+    select bank_name from marts.mart_bank_benchmark
+    order by rote desc nulls last limit 3
+
+- id: q07
+  question: Quelle banque a le coût du risque le plus faible ?
+  expected_sql: >
+    select bank_name from marts.mart_bank_benchmark
+    order by cost_of_risk_bp asc nulls last limit 1
+
+- id: q08
+  question: Pour combien de valeurs l'extraction de Claude est-elle en écart avec l'EBA ?
+  expected_sql: >
+    select count(*) from marts.mart_extraction_quality where status = 'ecart'

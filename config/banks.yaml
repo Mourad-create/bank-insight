@@ -1,0 +1,54 @@
+# Banques suivies par Bank Insight.
+# LEI = identifiant unique de l'entité juridique. Il sert de clé de jointure
+# entre les données EBA et les rapports annuels.
+# Les identifiants sont ceux de la liste officielle de l'EBA (TR_Metadata.xlsx),
+# vérifiés avec : python -m src.ingestion.load_eba --check-banks
+# Pour les groupes mutualistes sans LEI au niveau du groupe (Crédit Agricole, BPCE),
+# l'EBA utilise un identifiant construit : code pays + début du LEI de l'organe central.
+#
+# report_pdf : nom du fichier à déposer dans data/raw/reports/
+#   (Document d'enregistrement universel / rapport annuel, exercice 2024).
+
+reference_date: "2024-12-31"
+
+banks:
+  - name: BNP Paribas
+    country: FR
+    lei: R0MUWSFPU8MPRO8K5P83
+    report_pdf: bnp_paribas_2024.pdf
+  - name: Société Générale
+    country: FR
+    lei: O2RNE8IBXP4R0TD8PU41
+    report_pdf: societe_generale_2024.pdf
+  - name: Groupe Crédit Agricole
+    country: FR
+    lei: FR969500TJ5KRTCJQWXH   # identifiant EBA du groupe (pas un LEI GLEIF)
+    report_pdf: credit_agricole_2024.pdf
+  - name: Groupe BPCE
+    country: FR
+    lei: FR9695005MSX1OYEMGDF   # identifiant EBA du groupe (pas un LEI GLEIF)
+    report_pdf: bpce_2024.pdf
+  - name: Deutsche Bank
+    country: DE
+    lei: 7LTWFZYICNSX8D621K86
+    report_pdf: deutsche_bank_2024.pdf
+  - name: Banco Santander
+    country: ES
+    lei: 5493006QMFDDMYWIAM13
+    report_pdf: santander_2024.pdf
+  - name: BBVA
+    country: ES
+    lei: K8MS7FD7N5Z2WQ51AZ71
+    report_pdf: bbva_2024.pdf
+  - name: ING Groep
+    country: NL
+    lei: 549300NYKK9MWM7GGW15   # ING Groep N.V. (maison mère)
+    report_pdf: ing_2024.pdf
+  - name: UniCredit
+    country: IT
+    lei: 549300TRUWO2CD2G5692
+    report_pdf: unicredit_2024.pdf
+  - name: Intesa Sanpaolo
+    country: IT
+    lei: 2W8N8UU78PMDQKZENC08
+    report_pdf: intesa_2024.pdf

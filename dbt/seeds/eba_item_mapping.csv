@@ -1,0 +1,4 @@
+kpi,eba_item,scale_to_percent,comment
+cet1_ratio,2520140,100,"COMMON EQUITY TIER 1 CAPITAL RATIO (transitional period). Échelle à confirmer avec --check-banks"
+total_capital_ratio,2520142,100,"TOTAL CAPITAL RATIO (transitional period). Échelle à confirmer avec --check-banks"
+leverage_ratio,2520905,100,"Leverage ratio - using a transitional definition of Tier 1 capital. Échelle à confirmer avec --check-banks"

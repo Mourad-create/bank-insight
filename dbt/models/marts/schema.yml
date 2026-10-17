@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: fct_bank_kpis
+    description: Une ligne par banque × KPI, valeur du rapport annuel et valeur EBA de référence.
+    columns:
+      - name: lei_code
+        tests: [not_null]
+      - name: kpi
+        tests:
+          - not_null
+          - accepted_values:
+              values: [cet1_ratio, total_capital_ratio, leverage_ratio, net_banking_income,
+                       cost_income_ratio, cost_of_risk_bp, net_income_group_share, rote]
+      - name: value_report
+        description: Valeur lue par Claude dans le rapport (null si introuvable).
+      - name: source_page
+        description: Page du PDF original où se trouve la valeur.
+
+  - name: mart_extraction_quality
+    description: Contrôle des valeurs extraites par Claude contre les données EBA.
+    columns:
+      - name: status
+        tests:
+          - accepted_values:
+              values: [concordant, ecart, non_trouve, pas_de_reference]
+
+  - name: mart_bank_benchmark
+    description: Benchmark des banques (une ligne par banque), source du dashboard Power BI.
+    columns:
+      - name: lei_code
+        tests: [unique, not_null]

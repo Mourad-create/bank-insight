@@ -1,0 +1,9 @@
+kpi,label,unit,comparable_eba
+cet1_ratio,Ratio CET1 (Common Equity Tier 1),%,true
+total_capital_ratio,Ratio de solvabilité global,%,true
+leverage_ratio,Ratio de levier,%,true
+net_banking_income,Produit net bancaire (PNB) / revenus,M EUR,false
+cost_income_ratio,Coefficient d'exploitation,%,false
+cost_of_risk_bp,Coût du risque,bp,false
+net_income_group_share,Résultat net part du groupe,M EUR,false
+rote,Rentabilité des fonds propres tangibles (ROTE),%,false

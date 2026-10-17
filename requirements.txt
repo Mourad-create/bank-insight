@@ -1,0 +1,13 @@
+anthropic>=0.40
+duckdb>=1.1
+dbt-duckdb>=1.8
+pandas>=2.2
+pypdf>=4.0
+pyyaml>=6.0
+python-dotenv>=1.0
+requests>=2.31
+openpyxl>=3.1
+streamlit>=1.38
+# tests
+pytest>=8.0
+reportlab>=4.0

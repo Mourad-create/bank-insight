@@ -1,0 +1,8 @@
+# Profil local DuckDB. Lancer dbt depuis le dossier dbt/ avec : dbt build --profiles-dir .
+bank_insight:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../data/bank_insight.duckdb
+      threads: 4
